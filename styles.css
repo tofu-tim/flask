@@ -1,0 +1,40 @@
+.checkerboard {
+    display: grid;
+    grid-template-columns: repeat( {
+        {
+            cols
+        }
+    }
+    , 1fr);
+    grid-template-rows: repeat( {
+        {
+            rows
+        }
+    }
+    , 1fr);
+}
+
+.cell:nth-child(odd) {
+    background-color: {
+        {
+            color1
+        }
+    }
+    ;
+}
+
+.cell:nth-child(even) {
+    background-color: {
+        {
+            color2
+        }
+    }
+    ;
+}
+
+.cell {
+    width: 20px;
+    /* Each cell should take up the entire width of its column */
+    height: 20px;
+    /* Each cell should take up the entire height of its row */
+}
