@@ -1,0 +1,23 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="checkerboard">
+        {% for row in range(rows) %} {% for col in range(cols) %} {% set index = row * cols + col %} {% if index % 2 == 0 %}
+        <div class="cell" style="background-color: {{ color1 }}"></div>
+        {% else %}
+        <div class="cell" style="background-color: {{ color2 }}"></div>
+        {% endif %} {% endfor %} {% endfor %}
+    </div>
+</body>
+
+</html>
