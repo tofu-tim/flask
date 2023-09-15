@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Guess the Number</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h1>Guess the Number Game</h1>
+    <form method="POST">
+        <label for="guess">Enter your guess (1-100):</label>
+        <input type="number" id="guess" name="guess" min="1" max="100" required>
+        <input type="submit" value="Guess">
+    </form>
+    <div class="message-container">
+        {% if message %}
+        <p class="{{ 'correct-guess' if 'Congratulations!' in message else 'incorrect-guess' }}">{{ message }}</p>
+        {% endif %}
+    </div>
+    <div class="guess-box low-number">
+        Low Number: {% if low_guess %}{{ low_guess }}{% else %}N/A{% endif %}
+    </div>
+    <div class="guess-box high-number">
+        High Number: {% if high_guess %}{{ high_guess }}{% else %}N/A{% endif %}
+    </div>
+</body>
+
+</html>
