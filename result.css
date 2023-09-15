@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(250, 196, 120);
+    margin: 0;
+}
+
+.container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+h1 {
+    background-color: lightskyblue;
+    padding: 10px;
+    margin: 0;
+}
+
+p {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.back-button {
+    background-color: lightskyblue;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #0073e6;
+}
