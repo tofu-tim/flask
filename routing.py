@@ -26,8 +26,8 @@ def say_hi(name):
 
 @app.route('/repeat/<int:num>/<string:word>', methods=['GET', 'POST'])
 def repetition(num, word):
-    repeated_word = '\n'.join([f"{i + 1}. {word}" for i in range(num)])
-    return repeated_word
+    repeated_word = [f'{i + 1}. {word}\n' for i in range(num)]
+    return '\n'.join(repeated_word)
 
 
 if __name__ == '__main__':
