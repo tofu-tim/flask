@@ -1,26 +1,26 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
+
+from users import User
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template("index.html")
+    return redirect('/users')
 
-@app.route('/dojo')
-def success():
-    return "Dojo!"
+@app.route('/users')
+def users():
+    return render_template("read_all.html", users=User.get_all())
 
-@app.route('/say/<name>')
-def hello(name):
-    return "Hi, " + name
+@app.route('/users/new')
+def new():
+    return render_template("create.html")
 
-@app.route('/repeat/<int:num>/<string>')
-def repeat_string(string, num):
-    return string * num
+@app.route("/users/create", methods=['POST'])
+def create():
+    User.save(request.form)
+    return redirect('/users')
 
-@app.route('/<path:path>')
-def catch_all(path):
-    return "Sorry! No response. Try again."
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="localhost", port=8000)
